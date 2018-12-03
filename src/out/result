@@ -3,16 +3,16 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 10.0.0.4 port 5001 connected with 10.0.0.2 port 36311
+[  3] local 10.0.0.4 port 5001 connected with 10.0.0.2 port 52682
 [ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 1.0 sec  60.3 KBytes   494 Kbits/sec   0.212 ms   46/   88 (52%)
-[  3]  1.0- 2.0 sec  60.3 KBytes   494 Kbits/sec   0.090 ms   43/   85 (51%)
-[  3]  2.0- 3.0 sec  53.1 KBytes   435 Kbits/sec   0.100 ms   57/   94 (61%)
-[  3]  3.0- 4.0 sec  71.8 KBytes   588 Kbits/sec   0.229 ms   36/   86 (42%)
-[  3]  4.0- 5.0 sec  64.6 KBytes   529 Kbits/sec   0.171 ms   48/   93 (52%)
-[  3]  5.0- 6.0 sec  56.0 KBytes   459 Kbits/sec   0.155 ms   49/   88 (56%)
-[  3]  6.0- 7.0 sec  67.5 KBytes   553 Kbits/sec   0.122 ms   43/   90 (48%)
-[  3]  7.0- 8.0 sec  58.9 KBytes   482 Kbits/sec   0.123 ms   48/   89 (54%)
-[  3]  8.0- 9.0 sec  66.0 KBytes   541 Kbits/sec   0.139 ms   43/   89 (48%)
-[  3]  9.0-10.0 sec  70.3 KBytes   576 Kbits/sec   0.183 ms   37/   86 (43%)
-[  3]  0.0-10.3 sec   632 KBytes   504 Kbits/sec  15.889 ms  453/  893 (51%)
+[  3]  0.0- 1.0 sec  54.6 KBytes   447 Kbits/sec   0.174 ms   56/   94 (60%)
+[  3]  1.0- 2.0 sec  53.1 KBytes   435 Kbits/sec   0.110 ms   52/   89 (58%)
+[  3]  2.0- 3.0 sec  53.1 KBytes   435 Kbits/sec   0.233 ms   52/   89 (58%)
+[  3]  3.0- 4.0 sec  47.4 KBytes   388 Kbits/sec   0.112 ms   56/   89 (63%)
+[  3]  4.0- 5.0 sec  61.7 KBytes   506 Kbits/sec   0.135 ms   46/   89 (52%)
+[  3]  5.0- 6.0 sec  74.6 KBytes   612 Kbits/sec   0.133 ms   38/   90 (42%)
+[  3]  6.0- 7.0 sec  68.9 KBytes   564 Kbits/sec   0.150 ms   41/   89 (46%)
+[  3]  7.0- 8.0 sec  58.9 KBytes   482 Kbits/sec   0.100 ms   46/   87 (53%)
+[  3]  8.0- 9.0 sec  57.4 KBytes   470 Kbits/sec   0.185 ms   51/   91 (56%)
+[  3]  9.0-10.0 sec  53.1 KBytes   435 Kbits/sec   0.129 ms   47/   84 (56%)
+[  3]  0.0-10.2 sec   584 KBytes   469 Kbits/sec  15.861 ms  486/  893 (54%)

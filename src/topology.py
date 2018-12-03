@@ -55,13 +55,11 @@ def simpleTest():
     # Test connectivity by trying to have all nodes ping each other
     print("Testing network connectivity")
     net.pingAll()
-    #Åã¥Ü«ü©w¸`ÂIªºconnection
+    #Dump every hosts' and switches' connections
     dumpNodeConnections(net.hosts)
     dumpNodeConnections(net.switches)
-    #µ¥«ÝÁä¤J©R¥O
-    CLI(net)
     # Stop a network
-    net.stop()
+    CLI(net)
 
 '''
 Main (entry point)
