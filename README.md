@@ -18,7 +18,16 @@ In this lab, we are going to write a Python program which can generate a network
 
 > TODO: 
 > * Describe how to execute your program
+>> 1. Change the directory into /lab-chenchiaocheng/src/:
+>> 2. Change to the executable mode of topology.py
+>> `sudo chmod +x topology.py`
+>> 3. Run topology.py
+>> `sudo ./topology.py`
+>> 4. Use iPerf commands to get the rate of packet loss
+>> `mininet> [server] iperf -s -u -i 1 > "¿é¥X¦ì§}"(¨Ò¦p: ./out/result) &`
+>> `mininet> [client] iperf -c "server IP" -u -i 1`
 > * Show the screenshot of using iPerf command in Mininet
+>>![](https://i.imgur.com/L3x7WhY.png)
 
 ---
 ## Description
@@ -27,11 +36,26 @@ In this lab, we are going to write a Python program which can generate a network
 
 > TODO:
 > * Describe the meaning of Mininet API in Python you used in detail
+>> * `addSwitch("switch name")` : ²K¥[¤@­Óswitch¨ì©Ý¾ë
+>> * `addHost("host name")` : ²K¥[¤@­Óhost¨ì©Ý¾ë
+>> * `addLink("node", "node", bw = ?, delay = '?ms', loss = ?)` : ²K¥[Âù¦VÃì¸ô¨ì©Ý¾ë¡A¨Ã³]©wÀW¼e(Mbits)¡B©µ¿ð(ms)¡B·l¥¢(%)
+>> * `start()` : ¶}©l¹B¦æºô¸ô
+>> * `pingAll()` : ´ú¸Õ©Ò¦³¸`ÂI¤§¶¡ªº³s³q©Ê
+>> * `dumpNodeConnections()` : ¦C¥X©Ý¾ë¤º©Ò¦³¸`ÂIªºconnection°T®§
+>> * `CLI()` : Mininet CLI±Ò°Ê
+>> * `setLogLevel('info')` : ³]©wMininetÀq»{ªºoutput level
 
 ### iPerf Commands
 
 > TODO:
 > * Describe the meaning of iPerf command you used in detail
+>> * h4 iperf -s : ¿ï¾Üh4§@¬°serverºÝ¡A¥Hserver¼Ò¦¡±Ò°Ê 
+>> * -u : ¨Ï¥ÎUDP(¹w³]¬°TCP)
+>> * -i 1 : ³ø§i®É¶¡¶¡¹j1¬í
+>> * h2 iperf -c 10.0.4 : ¿ï¾Üh2§@¬°clientºÝ¡A¨Ã¥B³s±µIP¦ì§}10.0.0.4ªºªA°ÈºÝ
+>> 
+>>> `mininet> h4 iperf -s -u -i 1 > ./out/result &`
+>>> `mininet> h2 iperf -c 10.0.0.4 -u -i 1`
 
 ### Tasks
 
@@ -39,16 +63,48 @@ In this lab, we are going to write a Python program which can generate a network
 > * Describe how you finish this work step-by-step in detail
 
 1. **Environment Setup**
-
-
+> * **Step1. Join the lab on GitHub**
+>> * ¥[¤Jlab
+https://classroom.github.com/a/K8gaizQG 
+>> * ¶i¤JGitHub group https://github.com/nctucn
+> * **Step2. Login to your contaier using SSH**
+>> * ¶}±ÒPietty¡A¨Ã¿é¤JIP address : 140.113.195.69¸òport : 16021
+>> 
+>>> ![](https://i.imgur.com/dKmam6e.png)
+>> * µn¤J->Login: root  Passward: cn2018
+> * **Step3. Clone your GitHub repository**
+>> * §â¸ê®Æ§¨±qGitHub¤W§ì¤U¨Ó
+>> `git clone https://github.com/nctucn/lab2-chenchiaocheng.git`
+> * **Step4. Run Mininet for testing**
+>> * ¹B¦æMininet 
+>> `sudo mn`
+>> * ¦pªG¥X²{: You may wish to try "service openvswitch-switch start".«h±NOpen vSwitch±Ò°Ê¡A¿é¤J:
+>> `sudo service openvswitch-switch start`
+>> `sudo mn`
 2. **Example of Mininet**
-
-
+> * **°õ¦æ example.py**
+>> * ¥ý¶i¨ì/lab2-chenchiaocheng/src/¸ô®|¤¤
+>> * ±NÀÉ®×ÅÜ¦¨°õ¦æÀÉ¡A¦A°õ¦æ
+>> `sudo chm +x example.py`
+>> `sudo ./example.py`
+>> * ¦pªG¥X²{: File exists¡A¿é¤J¤U­±«ü¥O²M°£¥ý«eªº¸ê®Æ
+>> `sudo mn -c`
 3. **Topology Generator**
-
+> * **Step1. View the topology you should generate**
+>> * §ä¨ì­n²£¥Íªºtopology¡A¾Ç¸¹«á¤­½X%3->16021%3=1¡A­n²£¥Íªºtopology¦ptopo1.png
+> * **Step2. Generate the topology via Mininet**
+>> * °Ñ¦Òexample.py¼g¥Xtopology.py¡A§Q¥Î¤W­±´£¨ìªºMininet API¨Ó§¹¦¨¡Atopology.pyªºµù¸Ñ¦³¸ÑÄÀ¨C¤@¨B¦b°µ¬Æ»ò
 
 4. **Measurement**
-
+> * **Use iPerf commands to measure the topology you built**
+>> * ¥ý°õ¦ætopology.py¡A½T»{connection
+>> `sudo chm +x topology.py`
+>> `sudo ./topology.py`
+>> * ±µµÛ¿é¤J
+>> `mininet> h4 iperf -s -u -i 1 > ./out/result &`
+>> `mininet> h2 iperf -c 10.0.0.4 -u -i 1`
+>> * ¦b./lab2-chenchiaocheng/src/out/result ¥i¥H§ä¨ìµ²ªG->±o¨ìthe rate of packet loss : 51%
+>> * topo1.png ±o¨ìªº­ÈÀ³¤¶©ó51%~58%
 ---
 ## References
 
@@ -57,26 +113,33 @@ In this lab, we are going to write a Python program which can generate a network
 
 * **Mininet**
     * [Mininet Walkthrough](http://mininet.org/walkthrough/)
-    * [Introduction to Mininet](https://github.com/mininet/mininet/wiki/Introduction-to-Mininet)
-    * [Mininet Python API Reference Manual](http://mininet.org/api/annotated.html)
-    * [A Beginner's Guide to Mininet](https://opensourceforu.com/2017/04/beginners-guide-mininet/)
-    * [GitHub/OSE-Lab - ç†Ÿæ‚‰å¦‚ä½•ä½¿ç”¨ Mininet](https://github.com/OSE-Lab/Learning-SDN/blob/master/Mininet/README.md)
-    * [è¸é…’ç”Ÿçš„è¨˜äº‹æœ¬ â€“ Mininet ç­†è¨˜](https://blog.laszlo.tw/?p=81)
-    * [Hwchiu Learning Note â€“ æ‰‹æŠŠæ‰‹æ‰“é€ ä»¿ mininet ç¶²è·¯](https://hwchiu.com/setup-mininet-like-environment.html)
-    * [é˜¿å¯¬çš„å¯¦é©—å®¤ â€“ Mininet æŒ‡ä»¤ä»‹ç´¹](https://ting-kuan.blog/2017/11/09/%E3%80%90mininet%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9%E3%80%91/)
-    * [Mininet å­¸ç¿’æŒ‡å—](https://www.sdnlab.com/11495.html)
+	* [Introduction to Mininet](https://github.com/mininet/mininet/wiki/Introduction-to-Mininet)
+	* [Mininet Python API Reference Manual](http://mininet.org/api/annotated.html)
+	* [A Beginner's Guide to Mininet](https://opensourceforu.com/2017/04/beginners-guide-mininet/)
+	* [GitHub/OSE-Lab - ¼ô±x¦p¦ó¨Ï¥Î Mininet](https://github.com/OSE-Lab/Learning-SDN/blob/master/Mininet/README.md)
+	* [µÒ°s¥Íªº°O¨Æ¥» ¡V Mininet µ§°O](https://blog.laszlo.tw/?p=81)
+	* [Hwchiu Learning Note ¡V ¤â§â¤â¥´³y¥é mininet ºô¸ô](https://hwchiu.com/setup-mininet-like-environment.html)
+	* [ªü¼eªº¹êÅç«Ç ¡V Mininet «ü¥O¤¶²Ð](https://ting-kuan.blog/2017/11/09/%E3%80%90mininet%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9%E3%80%91/)
+	* [Mininet ¾Ç²ß«ü«n](https://www.sdnlab.com/11495.html)
+	* [SDN ºôµ¸¨t²Î¤§ Mininet »P API ¸Ô¸Ñ](https://hk.saowen.com/a/14d7c14b01c541dd2e53991ea67f1c5ca0d6406bdcb07a9d44065b3d4a37f6d7)
+	* [Mininet ªì±´¼Æ¾Ú¤¤¤ßºô¸ô](https://www.jianshu.com/p/b74f3f5cbe34)
+	* [SDN(³nÅé©w¸qºô¸ô)ªìÅéÅç-Mininet](https://zhuanlan.zhihu.com/p/30935141)
 * **Python**
-    * [Python 2.7.15 Standard Library](https://docs.python.org/2/library/index.html)
-    * [Python Tutorial - Tutorialspoint](https://www.tutorialspoint.com/python/)
+	* [Python 2.7.15 Standard Library](https://docs.python.org/2/library/index.html)
+	* [Python Tutorial - Tutorialspoint](https://www.tutorialspoint.com/python/)
 * **Others**
-    * [iPerf3 User Documentation](https://iperf.fr/iperf-doc.php#3doc)
-    * [Cheat Sheet of Markdown Syntax](https://www.markdownguide.org/cheat-sheet)
-    * [Vim Tutorial â€“ Tutorialspoint](https://www.tutorialspoint.com/vim/index.htm)
-    * [é³¥å“¥çš„ Linux ç§æˆ¿èœ â€“ ç¬¬ä¹ç« ã€vim ç¨‹å¼ç·¨è¼¯å™¨](http://linux.vbird.org/linux_basic/0310vi.php)
+	* [iPerf3 User Documentation](https://iperf.fr/iperf-doc.php#3doc)
+	* [Cheat Sheet of Markdown Syntax](https://www.markdownguide.org/cheat-sheet)
+	* [Vim Tutorial ¡V Tutorialspoint](https://www.tutorialspoint.com/vim/index.htm)
+	* [³¾­ôªº Linux ¨p©Ðµæ ¡V ²Ä¤E³¹¡Bvim µ{¦¡½s¿è¾¹](http://linux.vbird.org/linux_basic/0310vi.php)
+	* [iperf ¡V ²Î­p jitter ¥H¤Î packet loss](http://benjr.tw/3030)
+	* [§Q¥Î iperf ´ú¸Õºô¸ô®Ä¯à](https://cms.35g.tw/coding/%E5%88%A9%E7%94%A8-iperf-%E6%B8%AC%E8%A9%A6%E7%B6%B2%E8%B7%AF%E6%95%88%E8%83%BD/)
+	* [Markdown »yªk»¡©ú](https://markdown.tw/#p)
+	* [Markdown ­·®æ](https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html?q=)
+	* [¦p¦ó·¾³q¸ê®Æ¡G»´¶q¯Å¼Ð°O¦¡»y¨¥-¨Ï¥Î Markdown ¨ó§U¼g§@¤å¦r±Ô­z](https://medium.com/datainpoint/communicating-md-e53a08e6652f)
 
 ---
 ## Contributors
-
 > TODO:
 > * Please replace "YOUR_NAME" and "YOUR_GITHUB_LINK" into yours
 
@@ -85,5 +148,5 @@ In this lab, we are going to write a Python program which can generate a network
 
 ---
 ## License
-
+																							
 GNU GENERAL PUBLIC LICENSE Version 3
